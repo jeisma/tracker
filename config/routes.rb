@@ -1,8 +1,11 @@
 Tracker::Application.routes.draw do
+  root "pages#index"
+
   get "pages/calendar"
   get "pages/print_request"
   get "pages/summary_and_detail"
   get "pages/unlock"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
