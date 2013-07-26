@@ -1,5 +1,6 @@
 Tracker::Application.routes.draw do
-  root "pages#index"
+
+  root "pages#home"
 
   get "pages/calendar"
   get "pages/print_request"
