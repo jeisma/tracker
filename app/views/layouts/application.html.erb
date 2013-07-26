@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tracker</title>
+  <title>Time Off Tracker</title>
   <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
   <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
+  <%= stylesheet_link_tag 'custom', :media => 'screen' %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container">
+    <header>
+      <%= image_tag('11logo.png', :alt => 'Time Off Tracker', :class => "round") %>
+      <nav class="round">
+        <ul>
+	  <li> <%= link_to "Home", "#"%> </li>
+	  <li> <%= link_to "User", "#"%> </li>
+	  <li> <%= link_to "Settings", "#"%> </li>
+	  <li> <%= link_to "Reports", "#"%> </li>
+	  <li> <%= link_to "Reminders", "#"%> </li>
+	  <li> <%= link_to "Tools", "#"%> </li>
+	  <li> <%= link_to "Account", "#"%> </li>
+	  <li> <%= link_to "Help", "#"%> </li>
+	  <li> <%= link_to "Logout", "#"%> </li>
+	</ul>
+      </nav>
+    </header>
+    
+    <section class="round">
+      <%= yield %>
+    </section>
+  </div>
 </body>
 </html>
