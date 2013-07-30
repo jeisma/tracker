@@ -1,11 +1,20 @@
 Tracker::Application.routes.draw do
-
   root "pages#home"
 
-  get "pages/calendar"
-  get "pages/print_request"
-  get "pages/summary_and_detail"
-  get "pages/unlock"
+  get "/signup" => "users#new"
+  
+  resources :users do
+    member do
+      get 'change_password'
+    end
+  end
+    
+  get "/calendar" => "pages#calendar"
+  get "/print_request" => "pages#print_request"
+  get "/summary_and_detail" => "pages#summary_and_detail"
+  get "/unlock" => "pages#unlock"
+  get "/about" => "pages#about"
+  get "/help" => "pages#help"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -11,17 +11,17 @@
 <body>
   <div class="container">
     <header>
-      <%= image_tag('11logo.png', :alt => 'Time Off Tracker', :class => "round") %>
+      <%= link_to logo, root_path %>
       <nav class="round">
         <ul>
 	  <li> <%= link_to "Home", "#"%> </li>
-	  <li> <%= link_to "User", "#"%> </li>
+	  <li> <%= link_to "User", new_user_path %> </li>
 	  <li> <%= link_to "Settings", "#"%> </li>
 	  <li> <%= link_to "Reports", "#"%> </li>
 	  <li> <%= link_to "Reminders", "#"%> </li>
 	  <li> <%= link_to "Tools", "#"%> </li>
 	  <li> <%= link_to "Account", "#"%> </li>
-	  <li> <%= link_to "Help", "#"%> </li>
+	  <li> <%= link_to "Help", help_path %> </li>
 	  <li> <%= link_to "Logout", "#"%> </li>
 	</ul>
       </nav>
@@ -31,5 +31,8 @@
       <%= yield %>
     </section>
   </div>
+
+  <%= debug(params) %>
+  
 </body>
 </html>

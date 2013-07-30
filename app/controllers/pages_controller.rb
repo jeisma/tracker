@@ -18,4 +18,10 @@ class PagesController < ApplicationController
 
   def unlock
   end
+
+  def about
+  end
+
+  def help
+  end
 end
