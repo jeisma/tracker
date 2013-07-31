@@ -6,6 +6,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = 'Saved'
+      redirect_to :action => 'list'
+    else
+      render :action => 'new'
+    end
+  end
+  
   def show
   end
 
@@ -14,4 +24,10 @@ class UsersController < ApplicationController
 
   def change_password
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password, :last_name, :first_name)
+  end  
 end

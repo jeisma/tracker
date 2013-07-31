@@ -1,3 +1,10 @@
 <h1>Users#new</h1>
-<% form_for(@user) do |f| %>
+<%= form_for(@user) do |f| %>
+  <%= f.text_field :email, maxlength: 100 %>
+  <%= f.text_field :last_name, maxlength: 45 %>
+  <%= f.text_field :first_name, maxlength: 45 %>
+  <%= f.check_box :privileged %>
+  <%= f.password_field :password, maxlength: 45 %>
+  <%= f.password_field :password, maxlength: 45%>
+  <%= f.submit "Signup" %>
 <% end %>

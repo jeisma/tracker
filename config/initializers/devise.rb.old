@@ -1,0 +1,12 @@
+#http://t-taira.hatenablog.com/
+
+DeviseController.class_eval do
+  before_action :resource_params #, only: [:show, :edit, :update, :destroy]
+
+    def resource_params
+      unless params[resource_name].blank?
+             params.require(resource_name).permit(:email, :password, :password_confirmation, 
+	                                                 :remember_me, :reset_password_token, :current_password)
+    end
+  end
+end
