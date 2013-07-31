@@ -1,5 +1,15 @@
 <h1>Users#new</h1>
 <%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>   
+    <div id="error_explanation">     
+     <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
+     <ul><% @user.errors.full_messages.each do |msg| %>       
+       <li><%= msg %></li>     
+	<% end %>     
+     </ul>   
+    </div> 
+  <% end %> 
+				  
   <%= f.text_field :email, maxlength: 100 %>
   <%= f.text_field :last_name, maxlength: 45 %>
   <%= f.text_field :first_name, maxlength: 45 %>
