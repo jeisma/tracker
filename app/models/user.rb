@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
 #  attr_accessible :last_name, :first_name, :email, :privileged
-  
-  validates :last_name, :first_name, presence: true, length: {maximum: 45} 
-  validates :password, presence: true, length: {in: 6..45}
 
+  validates :email, presence: true, uniqueness: true
+  validates :last_name, :first_name, presence: true, length: {maximum: 45} 
+  
+  validates :password, length: {minimum: 6}
+  before_save { self.email = email.downcase }
+  has_secure_password
 end
