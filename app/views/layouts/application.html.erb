@@ -2,37 +2,19 @@
 <html>
 <head>
   <title>Time Off Tracker</title>
-  <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-  <%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
-  <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+  <%= stylesheet_link_tag 'application', media: 'all',
+                                          "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render 'layouts/header'%>
   <div class="container">
-    <header>
-      <%= link_to logo, root_path %>
-      <nav class="round">
-        <ul>
-	  <li> <%= link_to "Home", "#"%> </li>
-	  <li> <%= link_to "User", new_user_path %> </li>
-	  <li> <%= link_to "Settings", "#"%> </li>
-	  <li> <%= link_to "Reports", "#"%> </li>
-	  <li> <%= link_to "Reminders", "#"%> </li>
-	  <li> <%= link_to "Tools", "#"%> </li>
-	  <li> <%= link_to "Account", "#"%> </li>
-	  <li> <%= link_to "Help", help_path %> </li>
-	  <li> <%= link_to "Logout", "#"%> </li>
-	</ul>
-      </nav>
-    </header>
-    
-    <section class="round">
-      <%= yield %>
-    </section>
+    <%= yield %>
+    <%= render 'layouts/footer' %>    
   </div>
 
-  <%= debug(params) %>
+  <%= debug(params) if Rails.env.development? %>
   
 </body>
 </html>
